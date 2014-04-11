@@ -89,6 +89,9 @@ public class StuckInRemoteArtSource extends RemoteMuzeiArtSource {
         }
     }
 
+    /**
+     * 
+     */
     private void getNextArtwork() {
         RequestQueue queue = Volley.newRequestQueue(this);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, ALBUM_URL, null, new Response.Listener<JSONObject>() {
@@ -111,6 +114,10 @@ public class StuckInRemoteArtSource extends RemoteMuzeiArtSource {
         queue.add(request);
     }
 
+    /**
+     * @param feed
+     * @throws JSONException
+     */
     private void onFeedObtained(JSONArray feed) throws JSONException {
         JSONObject obj = feed.getJSONObject(getRandomNumber(0, feed.length()));
         String title = obj.getJSONObject("title").getString("$t").split("\\.")[0];
@@ -121,6 +128,10 @@ public class StuckInRemoteArtSource extends RemoteMuzeiArtSource {
         }
     }
 
+    /**
+     * @param art
+     * @throws JSONException
+     */
     private void displayArtwork(JSONObject art) throws JSONException {
         String imageURL = art.getJSONObject("content").getString("src");
         Log.d(TAG, imageURL);
@@ -131,15 +142,18 @@ public class StuckInRemoteArtSource extends RemoteMuzeiArtSource {
                 .viewIntent(new Intent(Intent.ACTION_VIEW,
                         Uri.parse(IMAGE_BASE + art.getJSONObject("gphoto$id").getString("$t"))))
                 .build();
-
+        SharedPreferences.Editor edit = mPrefs.edit();
+    	edit.putLong("lastupdate", System.currentTimeMillis());
+    	edit.commit();
         publishArtwork(artwork);
         setNextUpdate();
     }
 
+    /**
+     * 
+     */
     private void setNextUpdate() {
-        Long nextUpdate = System.currentTimeMillis() + (ROTATE_TIME_MILLIS * mPrefs.getInt("update", 24));
-        Date date = new Date(nextUpdate);
-        Toast.makeText(this, "Next update: " + date.toString(), Toast.LENGTH_LONG).show();
+        Long nextUpdate = mPrefs.getLong("lastupdate", System.currentTimeMillis()) + (ROTATE_TIME_MILLIS * mPrefs.getInt("update", 24));
         scheduleUpdate(nextUpdate);
     }
 

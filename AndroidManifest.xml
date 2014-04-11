@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.appsculture.stuckinmuzei" >
 
+    <uses-sdk android:minSdkVersion="17" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -21,20 +23,17 @@
             <meta-data
                 android:name="color"
                 android:value="#fa0" />
-            <meta-data android:name="settingsActivity"
-                android:value="com.appsculture.stuckinmuzei.MainActivity"/>
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".MainActivity" />
         </service>
 
         <activity
             android:name="com.appsculture.stuckinmuzei.MainActivity"
-            android:label="@string/app_name"
+            android:exported="true"
             android:icon="@drawable/ic_source"
-            android:theme="@style/Theme.StuckInMuzei">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StuckInMuzei" >
         </activity>
     </application>
 
