@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:background="@color/translucent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.appsculture.stuckinmuzei.MainActivity"
+    tools:ignore="MergeRootFrame"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update_every"
+        android:textColor="@color/yellow"
+        android:layout_margin="@dimen/buttons_margin"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Muzei.Small"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButtonThree"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@drawable/ic_three_hours"
+            android:layout_margin="@dimen/buttons_margin" />
+
+        <ImageButton
+            android:id="@+id/imageButtonSix"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@drawable/ic_six_hours"
+            android:layout_margin="@dimen/buttons_margin" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButtonTwelve"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@drawable/ic_twelve_hours"
+            android:layout_margin="@dimen/buttons_margin" />
+
+        <ImageButton
+            android:id="@+id/imageButtonTwentyFour"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:background="@drawable/ic_twentyfour_hours"
+            android:layout_margin="@dimen/buttons_margin" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkboxOnlyWifi"
+        android:layout_margin="@dimen/buttons_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update_only_wifi"
+        android:textColor="@color/yellow"
+        android:checked="true"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.Muzei.Small"/>
+</LinearLayout>

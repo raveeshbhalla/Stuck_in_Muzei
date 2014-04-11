@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="yellow">#fcffa2</color>
+    <color name="yellow_fifty_percent">#80fcffa2</color>
+    <color name="white">#fff</color>
+    <color name="transparent">#00000000</color>
+    <color
+        name="translucent">#99000000</color>
+</resources>

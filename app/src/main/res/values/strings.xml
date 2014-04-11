@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Stuck in Muzei</string>
+    <string name="source_description">Work of Trey Ratcliff</string>
+    <string name="update_every">Update frequency (hours)</string>
+    <string name="update_only_wifi">Update only when connected to Wifi</string>
+</resources>
